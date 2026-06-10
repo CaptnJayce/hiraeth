@@ -89,12 +89,11 @@ require("lazy").setup({
           "ruff", "clangd", "neocmake", "bashls",
         },
         automatic_installation = true,
-      })
-
-      require("mason-lspconfig").setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup({})
-        end,
+        handlers = {
+          function(server_name)
+            require("lspconfig")[server_name].setup({})
+          end,
+        },
       })
     end,
   },
