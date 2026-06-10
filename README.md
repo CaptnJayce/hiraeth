@@ -1,0 +1,2 @@
+# hiraeth
+Neovim config
