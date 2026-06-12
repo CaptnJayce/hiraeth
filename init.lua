@@ -65,6 +65,24 @@ require("lazy").setup({
   },
 
   {
+    "Saghen/blink.cmp",
+    version = "*",
+    opts = {
+      keymap = { preset = "super-tab" },
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = "mono",
+      },
+      sources = {
+        default = { "lsp", "path", "buffer" },
+      },
+      completion = {
+        documentation = { auto_show = true },
+      },
+    },
+  },
+
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     config = function()
@@ -91,7 +109,8 @@ require("lazy").setup({
         automatic_installation = true,
         handlers = {
           function(server_name)
-            require("lspconfig")[server_name].setup({})
+            local capabilities = require("blink.cmp").get_lsp_capabilities()
+            require("lspconfig")[server_name].setup({ capabilities = capabilities })
           end,
         },
       })
