@@ -137,6 +137,21 @@ require("lazy").setup({
       })
     end,
   },
+
+  {
+    "vyfor/cord.nvim",
+    build = ":Cord update",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("tiny-inline-diagnostic").setup()
+    end,
+  },
 }, {
   ui = { border = "rounded" },
 })
