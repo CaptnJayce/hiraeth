@@ -14,7 +14,7 @@ There could be even less here if you remove matugen and which-key, even less so 
 | Plugin | Purpose |
 |--------|---------|
 | `telescope.nvim` | Fuzzy finder |
-| `matugen.nvim` | Material You colours from matugen |
+| `base16.nvim` | Temp colour palette whilst I make my own theme |
 | `which-key.nvim` | Keybind hints |
 | `blink.cmp` | Completion engine |
 | `mason.nvim` | LSP/tool installer |
