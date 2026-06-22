@@ -149,3 +149,40 @@ require("lazy").setup({
 
 vim.keymap.set("n", "<leader>e", vim.cmd.Explore, { desc = "Open netrw" })
 vim.keymap.set("n", "<leader>y", "<cmd>term yazi<<cr>", { desc = "Open yazi" })
+
+local function set_transparent()
+	local groups = {
+		"Normal",
+		"NormalNC",
+		"NormalFloat",
+		"FloatBorder",
+		"SignColumn",
+		"StatusLine",
+		"StatusLineNC",
+		"TabLine",
+		"TabLineFill",
+		"TabLineSel",
+		"VertSplit",
+		"WinSeparator",
+		"EndOfBuffer",
+		"LineNr",
+		"CursorLineNr",
+		"Folded",
+		"FoldColumn",
+		"TelescopeNormal",
+		"TelescopeBorder",
+		"WhichKeyFloat",
+		"LazyNormal",
+		"MasonNormal",
+	}
+	for _, group in ipairs(groups) do
+		vim.api.nvim_set_hl(0, group, { bg = "NONE", ctermbg = "NONE" })
+	end
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = set_transparent,
+})
+
+set_transparent()
